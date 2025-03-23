@@ -14,14 +14,13 @@ pipeline {
                 sleep 2
                 echo "Image Builded"
                 sh 'pwd'
-                echo "${JOKE}"
                 sh 'echo "######################" > ./data.txt'
             }
         }
         stage('Test Jenkinsfile'){
             steps {
                 sleep 1
-                echo '$JOKE'
+                sh  'echo $JOKE zuera rsrss'
                 echo "Image Tested"
                 sh 'pwd'
                 sh 'cat ./data.txt'
