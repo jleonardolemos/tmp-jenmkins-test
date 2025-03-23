@@ -14,7 +14,7 @@ pipeline {
                 sleep 2
                 echo "Image Builded"
                 sh 'pwd'
-                echo "$JOKE"
+                echo "${JOKE}"
                 sh 'echo "######################" > ./data.txt'
             }
         }
