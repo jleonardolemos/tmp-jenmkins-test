@@ -2,6 +2,9 @@ pipeline {
     agent {
         docker { image 'convenia/php-full:latest' }
     }
+    environment {
+        JOKE = credentials('joke')
+    }
     options {
         skipStagesAfterUnstable()
     }
@@ -11,12 +14,14 @@ pipeline {
                 sleep 2
                 echo "Image Builded"
                 sh 'pwd'
+                echo "$JOKE"
                 sh 'echo "######################" > ./data.txt'
             }
         }
         stage('Test Jenkinsfile'){
             steps {
                 sleep 1
+                echo '$JOKE'
                 echo "Image Tested"
                 sh 'pwd'
                 sh 'cat ./data.txt'
