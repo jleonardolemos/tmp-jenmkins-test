@@ -28,12 +28,12 @@ pipeline {
             parallel {
                 stage('PHP Version') {
                     steps {
-                        sleep 10
+                        php --version
                     }
                 }
                 stage('Laravel Version') {
                     steps {
-                        sleep 10
+                        php artisan about
                     }
                 }
             }
