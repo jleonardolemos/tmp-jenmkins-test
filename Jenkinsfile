@@ -10,7 +10,8 @@ pipeline {
             steps {
                 sleep 2
                 echo "Image Builded"
-                sh 'echo "######################" > /workspace/data.txt'
+                sh 'pwd'
+                sh 'echo "######################" > ./data.txt'
             }
         }
         stage('Test Jenkinsfile'){
@@ -18,7 +19,8 @@ pipeline {
             steps {
                 sleep 1
                 echo "Image Tested"
-                sh 'cat /workspace/data.txt'
+                sh 'pwd'
+                sh 'cat ./data.txt'
             }
         }
         stage('Deploy Jenkinsfile') {
