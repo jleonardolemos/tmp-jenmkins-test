@@ -8,19 +8,20 @@ pipeline {
     stages {
         stage('Build Jenkinsfile') {
             steps {
-                sleep 20
+                sleep 2
                 echo "Image Builded"
             }
         }
         stage('Test Jenkinsfile'){
+            agent { node 'local-shell' }
             steps {
-                sleep 10
+                sleep 1
                 echo "Image Tested"
             }
         }
         stage('Deploy Jenkinsfile') {
             steps {
-                sleep 10
+                sleep 1
                 echo "Image Deployed"
             }
         }
@@ -33,7 +34,7 @@ pipeline {
                 }
                 stage('Laravel Version') {
                     steps {
-                        sh 'php artisan about'
+                        sh 'uname -a'
                     }
                 }
             }
