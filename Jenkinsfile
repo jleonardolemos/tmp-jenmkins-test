@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'convenia/php-full:latest' }
+    }
     options {
         skipStagesAfterUnstable()
     }
