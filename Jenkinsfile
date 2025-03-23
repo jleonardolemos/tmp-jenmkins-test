@@ -15,7 +15,6 @@ pipeline {
             }
         }
         stage('Test Jenkinsfile'){
-            agent { node 'local-shell' }
             steps {
                 sleep 1
                 echo "Image Tested"
@@ -24,6 +23,7 @@ pipeline {
             }
         }
         stage('Deploy Jenkinsfile') {
+            agent { node 'local-shell' }
             steps {
                 sleep 1
                 echo "Image Deployed"
