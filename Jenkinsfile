@@ -24,5 +24,21 @@ pipeline {
                 echo "Image Deployed"
             }
         }
+        stage('Report') {
+            parallel {
+                stage('PHP Version') {
+                    steps {
+                        sleep 10
+                        php --version
+                    }
+                }
+                stage('Laravel Version') {
+                    steps {
+                        sleep 10
+                        sh php artisan about
+                    }
+                }
+            }
+        }
     }
 }
